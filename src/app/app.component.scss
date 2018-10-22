@@ -1,0 +1,38 @@
+
+.box{
+  display: flex;
+  margin:auto;
+  background: #f3f3f3;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 800px;
+  min-height: 400px;
+}
+
+
+.add-contact button, .btn{
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s;
+  cursor: pointer;
+}
+.add-contact button:hover, .btn:hover{
+  background: purple;
+  color: white;
+}
+
+.btn{
+  margin-left: 10px;
+}

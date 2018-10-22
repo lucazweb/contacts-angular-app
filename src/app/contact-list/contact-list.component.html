@@ -1,0 +1,21 @@
+<ul class="lista-contatos">
+
+    <li *ngFor='let contact of contacts'>
+        <div class="item">
+            <div class="avatar" (click)="deleteContact(contact.id)">X</div>
+            <p>{{ contact.nome }}</p>
+        </div>
+        <button class="btn-remove">x</button>
+    </li>
+
+
+    <li class="novo">
+        <div class="item">
+            <div class="avatar">+</div>
+            <p><input class="ipt" type="text" placeholder="Insira o nome do novo contato" /></p>
+        </div>
+        <button class="btn">Adicionar</button>
+
+    </li>
+
+</ul>
