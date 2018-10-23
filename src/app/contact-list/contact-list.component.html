@@ -2,20 +2,18 @@
 
     <li *ngFor='let contact of contacts'>
         <div class="item">
-            <div class="avatar" (click)="deleteContact(contact.id)">X</div>
+            <div class="avatar">{{contact.nome[0]}}</div>
             <p>{{ contact.nome }}</p>
         </div>
-        <button class="btn-remove">x</button>
+        <button class="btn-remove" (click)="deleteContact(contact.id)">x</button>
     </li>
 
 
     <li class="novo">
         <div class="item">
             <div class="avatar">+</div>
-            <p><input class="ipt" type="text" placeholder="Insira o nome do novo contato" /></p>
+            <p><input [(ngModel)]="contact.nome" ngModel class="ipt" type="text" placeholder="Insira o nome do novo contato" /></p>
         </div>
-        <button class="btn">Adicionar</button>
-
+        <button class="btn" (click)="newContact(contact)">Adicionar</button>
     </li>
-
 </ul>

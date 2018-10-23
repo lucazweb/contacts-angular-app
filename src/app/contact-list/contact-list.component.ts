@@ -19,6 +19,16 @@ export class ContactListComponent implements OnInit {
   contacts: Contact[];
   message: String;
 
+  contact: Contact = new Contact();
+
+
+  newContact(contact){
+    this.contactService.newContact(contact)
+      .then(res => {
+        console.log(res);
+        this.getContacts();
+      })
+  }
 
   getContacts(): void {
     this.contactService.getContacts().subscribe(data =>  this.contacts = data);
@@ -26,7 +36,10 @@ export class ContactListComponent implements OnInit {
 
   deleteContact(id: number){
     this.contactService.deleteContact(id)
-      .then(res => {console.log(res)});
+      .then(res => {
+        console.log(res);
+        this.getContacts();
+      });
   }
 
 }
