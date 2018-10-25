@@ -1,4 +1,39 @@
+<h1 class="app-title">Contacts Simple App</h1>
 <div class="box">
-    <app-contact-list></app-contact-list>
-    <app-contact-detail></app-contact-detail>
+
+    <ul class="lista-contatos">
+        <li *ngFor='let contact of contacts'>
+            <div class="item" (click)="selectContact(contact)">
+                <div class="avatar">{{contact.nome[0]}}</div>
+                <p>{{ contact.nome }}</p>
+            </div>
+            <button class="btn-remove" (click)="deleteContact(contact.id)">x</button>
+        </li>
+
+        <li class="no-results" *ngIf="contacts.length == 0"> <h3> Sem contatos cadastrados </h3></li>
+
+        <li class="novo">
+            <div class="item">
+                <div class="avatar">+</div>
+                <p><input [(ngModel)]="contact.nome" ngModel class="ipt" type="text" placeholder="Insira o nome do novo contato" /></p>
+            </div>
+            <button class="btn" (click)="newContact(contact)">Adicionar</button>
+        </li>
+    </ul>
+
+    <div class="detalhes">
+        <h3>{{currentContact.nome || 'Nenhum contato selecionado' }}</h3>
+        <ul>
+            <li *ngFor="let detail of currentContact.contatos"> <strong>{{detail.nome}}</strong> {{detail.contato}}<button (click)="deleteContactDetail(detail.id)" class="btn-remove">x</button></li>
+            <li *ngIf="currentContact.contatos == undefinned">  Sem detalhes cadastrados</li>
+        </ul>
+
+        <div class="add-contact">
+            <h4> Adicionar detalhe de contato </h4>
+            <input [(ngModel)]="newContactDetail.nome" type="text" placeholder="Nome do detalhe de contato" />
+            <input [(ngModel)]="newContactDetail.contato" type="text" placeholder="E-mail, telefone, skype.." />
+            <button (click)="addDetail(newContactDetail)"> Adicionar </button>
+        </div>
+</div>
+
 </div>
